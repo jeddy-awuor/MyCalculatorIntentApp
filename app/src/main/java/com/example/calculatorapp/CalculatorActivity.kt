@@ -76,7 +76,7 @@ fun Calc() {
 
         Text(text = answer,
             fontFamily = FontFamily.Cursive,
-            color = Color(229, 149, 142),
+            color = Color(red = 232, green = 210 , blue = 187, alpha = 255),
             fontSize = 30.sp
         )
         Spacer(modifier = Modifier.height(20.dp))
@@ -90,11 +90,11 @@ fun Calc() {
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(255, 186, 0),
                 unfocusedBorderColor = Color(229, 149, 142),
-                textColor = Color(red = 232, green = 210 , blue = 187, alpha = 255)
-
+                focusedTextColor = Color(red = 232, green = 210 , blue = 187, alpha = 255),
+                unfocusedTextColor = Color(red = 232, green = 210 , blue = 187, alpha = 255)
             ),
             onValueChange ={
-              firstnum = it
+                firstnum = it
 
             } )
         Spacer(modifier = Modifier.height(30.dp))
@@ -105,8 +105,9 @@ fun Calc() {
                 fontSize = 20.sp)},
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(255, 186, 0),
+                unfocusedTextColor = Color(red = 232, green = 210 , blue = 187, alpha = 255),
                 unfocusedBorderColor = Color(229, 149, 142),
-                textColor = Color(red = 232, green = 210 , blue = 187, alpha = 255)
+                focusedTextColor = Color(red = 232, green = 210 , blue = 187, alpha = 255)
             ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             onValueChange = {
@@ -153,10 +154,10 @@ fun Calc() {
         Spacer(modifier = Modifier.height(50.dp))
         OutlinedButton(
             onClick = {
-                      var myfirstnum = firstnum.text.trim()
+                var myfirstnum = firstnum.text.trim()
                 var mysecondnum = secondnum.text.trim()
                 if (myfirstnum.isEmpty() && mysecondnum.isEmpty()){
-                  answer = "Please fill in all details"
+                    answer = "Please fill in all details"
                 }
                 else {
                     var myanswer = myfirstnum.toDouble() * mysecondnum.toDouble()
